@@ -1,0 +1,32 @@
+customer_id,name,email,phone,city,signup_date,updated_at
+C001,Rahul Mane,rahul@gmail.com,9876543210,Mumbai,2023-01-01,2024-01-01
+C001,Rahul M,rahul@gmail.com,9876543210,mumbai,01-01-2023,2024-02-10
+C002,Anita,anita@gmail.com,9876543211,Bangalore,2023-01-05,2024-01-10
+C003,Amit Sharma,amit@gmail.com,9876543212,Delhi,2023-01-10,2024-01-12
+C004,,aman@yahoo.com,,Delhi,Jan 03 2024,2024-01-03
+C005,Pooja,pooja@gmail.com,9876543213,Mumbai,2023-01-15,2024-01-15
+C006,Raj,raj@gmail.com,9876543214,Pune,2023-01-20,2024-01-18
+C007,Neha,neha@gmail.com,9876543215,Bangalore,2023-01-25,2024-01-20
+C008,Karan,karan@gmail.com,9876543216,Delhi,2023-02-01,2024-01-22
+C009,Sunita,sunita@gmail.com,9876543217,Mumbai,2023-02-05,2024-01-25
+C010,Rohit,rohit@gmail.com,9876543218,Chennai,2023-02-10,2024-01-28
+C011,Suresh,suresh@gmail.com,9876543219,Pune,2023-02-15,2024-01-30
+C012,Meena,meena@gmail.com,9876543220,Delhi,2023-02-20,2024-02-01
+C013,Vikram,vikram@gmail.com,9876543221,Mumbai,2023-02-25,2024-02-02
+C014,Priya,priya@gmail.com,9876543222,Bangalore,2023-03-01,2024-02-03
+C015,Arjun,arjun@gmail.com,9876543223,Chennai,2023-03-05,2024-02-04
+C016,Nisha,nisha@gmail.com,9876543224,Pune,2023-03-10,2024-02-05
+C017,Manoj,manoj@gmail.com,9876543225,Delhi,2023-03-15,2024-02-06
+C018,Kavita,kavita@gmail.com,9876543226,Mumbai,2023-03-20,2024-02-07
+C019,Ramesh,ramesh@gmail.com,9876543227,Bangalore,2023-03-25,2024-02-08
+C020,Alok,alok@gmail.com,9876543228,Delhi,2023-04-01,2024-02-09
+C021,Deepa,deepa@gmail.com,9876543229,Chennai,2023-04-05,2024-02-10
+C022,Sanjay,sanjay@gmail.com,9876543230,Pune,2023-04-10,2024-02-11
+C023,Isha,isha@gmail.com,9876543231,Mumbai,2023-04-15,2024-02-12
+C024,Rahul K,rahulk@gmail.com,9876543232,Bangalore,2023-04-20,2024-02-13
+C025,Varun,varun@gmail.com,9876543233,Delhi,2023-04-25,2024-02-14
+C026,Shalini,shalini@gmail.com,9876543234,Chennai,2023-05-01,2024-02-15
+C027,Nitin,nitin@gmail.com,9876543235,Pune,2023-05-05,2024-02-16
+C028,Rekha,rekha@gmail.com,9876543236,Mumbai,2023-05-10,2024-02-17
+C029,Aakash,aakash@gmail.com,9876543237,Bangalore,2023-05-15,2024-02-18
+C030,Pankaj,pankaj@gmail.com,9876543238,Delhi,2023-05-20,2024-02-19
