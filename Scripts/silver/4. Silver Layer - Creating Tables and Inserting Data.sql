@@ -1,3 +1,16 @@
+/*
+ Implement data cleaning and transformation logic for core entities
+
+- Created silver.orders, silver.customers, silver.order_items, silver.payments, and silver.shipments tables
+- Applied deduplication using ROW_NUMBER() window function
+- Enforced strong data types (TIMESTAMP, DATE, DECIMAL, INT)
+- Standardized categorical values (UPPER, INITCAP)
+- Implemented null handling and default values
+- Converted string-based raw fields into structured formats
+- Added basic business flags (is_shipped, is_delivered)
+- Applied data normalization rules during Bronze → Silver transformation
+*/
+
 DROP TABLE IF EXISTS silver.orders;
 CREATE TABLE silver.orders(
 order_id VARCHAR(50),
@@ -146,4 +159,5 @@ CASE WHEN delivered_date IS NOT NULL THEN TRUE
      ELSE FALSE
 END AS is_delivered,
 carrier
+
 FROM bronze.shipments_raw
