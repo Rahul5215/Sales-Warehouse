@@ -1,3 +1,23 @@
+/*
+🥇 Gold Layer Load Procedure
+
+The gold.load_gold() procedure orchestrates the final stage of the warehouse pipeline. It performs a full refresh of analytical dimension and fact tables based on the cleansed Silver layer.
+
+The procedure:
+
+- Loads dimension tables (dim_customers, dim_products, dim_dates)
+
+- Loads fact tables (fact_orders, fact_order_items, fact_payments)
+
+- Maintains correct dependency order (dimensions before facts)
+
+- Uses a TRUNCATE + INSERT strategy for deterministic rebuilds
+
+- Tracks per-table execution time and total load duration
+
+This procedure ensures the Gold layer remains analytics-ready and optimized for reporting and BI consumption.
+*/
+
 CREATE OR REPLACE PROCEDURE gold.load_gold()
 LANGUAGE plpgsql
 AS
@@ -9,6 +29,10 @@ duration INTERVAL;
 t_start_time TIMESTAMP;
 t_end_time TIMESTAMP;
 t_duration INTERVAL;
+v_state TEXT;
+v_message TEXT;
+v_hint TEXT;
+v_detail TEXT;
 BEGIN
 start_time := clock_timestamp();
 RAISE NOTICE '============================================';
@@ -59,7 +83,9 @@ RAISE NOTICE 'INSERTING DATA INTO : gold.dim_products';
 INSERT INTO gold.dim_products
 SELECT
 DISTINCT
-product_id
+product_id,
+product_name,
+category
 FROM silver.order_items;
 
 t_end_time := clock_timestamp();
@@ -157,7 +183,7 @@ RAISE NOTICE 'LOADING TIME FOR TABLE gold.fact_order_items: %',t_duration;
 
 
 ------------------------------------------------------
--- FACT TABLE : fact_order_items
+-- FACT TABLE : fact_payments
 ------------------------------------------------------
 t_start_time := clock_timestamp();
 RAISE NOTICE '--------------------------------------------';
@@ -188,10 +214,24 @@ duration := end_time - start_time;
 RAISE NOTICE '============================================';
 RAISE NOTICE 'TOTAL LOADING TIME : %', duration;
 RAISE NOTICE '============================================';
+
+EXCEPTION WHEN OTHERS THEN 
+GET STACKED DIAGNOSTICS
+v_state = RETURNED_SQLSTATE,
+v_message = MESSAGE_TEXT,
+v_detail = PG_EXCEPTION_DETAIL,
+v_hint = PG_EXCEPTION_HINT;
+
+RAISE NOTICE 'ERROR STATE   :%', v_state;
+RAISE NOTICE 'ERROR MESSAGE :%', v_message;
+RAISE NOTICE 'ERROR DETAIL  :%', v_detail;
+RAISE NOTICE 'ERROR HINT 	:%', v_hint;
+
 END
 $$
 
 
 call gold.load_gold()
+
 
 
