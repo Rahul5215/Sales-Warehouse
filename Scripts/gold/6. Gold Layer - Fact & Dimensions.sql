@@ -1,3 +1,37 @@
+/*
+🥇 Gold Layer – Analytical Star Schema
+
+The Gold layer represents the business-ready analytical model built on top of the cleaned Silver layer. It follows a star schema design by separating transactional metrics (fact tables) from descriptive attributes (dimension tables).
+
+Fact Tables:
+
+fact_orders – Order-level transactional data enriched with shipment attributes
+
+fact_order_items – Line-item level sales metrics including derived revenue
+
+fact_payments – Payment transaction details
+
+Dimension Tables:
+
+dim_customers – Customer master data for reporting and segmentation
+
+dim_products – Product reference dimension derived from order items
+
+This layer is designed to support analytical workloads such as:
+
+Revenue analysis
+
+Customer behavior tracking
+
+Shipment performance monitoring
+
+Payment success analysis
+
+Product performance reporting
+
+The Gold layer enables efficient aggregations and BI tool integration by providing structured, analytics-ready datasets.
+*/
+
 SELECT * FROM silver.orders
 
 SELECT * FROM silver.shipments
@@ -71,4 +105,5 @@ SELECT
 DISTINCT
 product_id
 FROM silver.order_items
+
 
