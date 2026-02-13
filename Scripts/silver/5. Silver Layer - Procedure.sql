@@ -5,21 +5,21 @@ This procedure implements the Bronze → Silver transformation layer of the ware
 
 Key transformations include:
 
-Deduplication using ROW_NUMBER() to retain the most recent records
+- Deduplication using ROW_NUMBER() to retain the most recent records
 
-Data type enforcement (TIMESTAMP, DATE, DECIMAL, INTEGER)
+- Data type enforcement (TIMESTAMP, DATE, DECIMAL, INTEGER)
 
-Null handling and default value assignment
+- Null handling and default value assignment
 
-Domain standardization (UPPER, INITCAP)
+- Domain standardization (UPPER, INITCAP)
 
-Shipment ID normalization using regex
+- Shipment ID normalization using regex
 
-Derived boolean indicators for shipment status
+- Derived boolean indicators for shipment status
 
-Full-refresh load strategy using TRUNCATE + INSERT
+- Full-refresh load strategy using TRUNCATE + INSERT
 
-Execution time tracking and structured error diagnostics
+- Execution time tracking and structured error diagnostics
 
 This layer ensures that downstream analytical models operate on consistent, validated, and structured data.
 */
@@ -230,6 +230,7 @@ END
 $$;
 
 CALL silver.load_silver()
+
 
 
 
