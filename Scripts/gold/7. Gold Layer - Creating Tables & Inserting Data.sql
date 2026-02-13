@@ -1,3 +1,27 @@
+/*
+🥇 Gold Layer – Star Schema Analytical Model
+
+The Gold layer represents the business-ready analytical schema built on top of the cleansed Silver layer. It follows a star schema design, separating transactional metrics (fact tables) from descriptive attributes (dimension tables).
+
+=>Fact Tables
+
+- fact_orders – Order-level transactions enriched with shipment metadata and operational flags
+
+- fact_order_items – Line-item level sales metrics including derived revenue
+
+- fact_payments – Payment transactions for financial reporting
+
+=>Dimension Tables
+
+- dim_customers – Customer master data for segmentation and reporting
+
+- dim_products – Product attributes including name and category
+
+- dim_dates – Calendar dimension enabling time-based analysis
+
+The Gold layer is optimized for analytical queries, KPI reporting, and BI tool integration, providing structured, consistent, and business-aligned datasets.
+*/
+
 ------------------------------------------------------
 -- FACT TABLE : fact_orders
 ------------------------------------------------------
@@ -122,7 +146,7 @@ FROM silver.order_items
 ------------------------------------------------------
 -- DIMENTION TABLE : dim_dates
 ------------------------------------------------------
-DROP TABLE IF EXISTS gold.dim_dates
+DROP TABLE IF EXISTS gold.dim_dates;
 CREATE TABLE gold.dim_dates
 SELECT DISTINCT
   order_ts::DATE AS date,
@@ -131,3 +155,4 @@ SELECT DISTINCT
   EXTRACT(DAY FROM order_ts) AS day,
   TO_CHAR(order_ts, 'Day') AS weekday
 FROM silver.orders;
+
