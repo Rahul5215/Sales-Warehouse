@@ -1,5 +1,25 @@
-select *from bronze.orders_raw
+/*🥈 Silver Layer – Data Quality Validation & Cleaning Logic
 
+This script implements structured data quality validation and cleansing logic as part of the Silver layer transformation process. After raw data ingestion into the Bronze layer, this step ensures that data is standardized, validated, and prepared for analytical modeling in the Gold layer.
+
+The script performs:
+
+- Duplicate removal using ROW_NUMBER() to retain the most recent records
+
+- Null handling and default value assignment
+
+- Pattern and format validation using regular expressions
+
+- Referential integrity checks across related tables
+
+- Categorical standardization using UPPER(), INITCAP(), and trimming
+
+- Temporal anomaly detection for unrealistic dates
+
+- Data type validation and safe casting to enforce structured schema rules
+
+This layer acts as a controlled transformation stage where raw operational data is converted into reliable, analytics-ready datasets while preserving traceability and data integrity.
+*/
 ---------------------------------------
 --For Column : order_id
 ---------------------------------------
@@ -713,6 +733,7 @@ CASE WHEN delivered_date IS NOT NULL THEN TRUE
 END AS is_delivered,
 carrier
 FROM bronze.shipments_raw
+
 
 
 
