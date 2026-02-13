@@ -85,3 +85,21 @@ Example Tables:
 Purpose:
 
 Enable fast reporting, dashboarding, and executive-level insights.
+
+📊 Business Use Cases Supported
+
+This warehouse enables analysis such as:
+
+📈 Revenue trend analysis
+
+🧍 Customer retention tracking
+
+🛒 Order frequency analysis
+
+💳 Payment success rate analysis
+
+🚚 Delivery performance insights
+
+🏙️ City-wise sales distribution
+
+📦 Product category performance
