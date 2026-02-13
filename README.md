@@ -1,4 +1,5 @@
 Sales Data Warehouse (Medallion Architecture)
+
 🚀 Project Overview
 
 This project implements a modern data warehouse architecture using a Medallion (Bronze–Silver–Gold) approach to transform raw transactional sales data into business-ready analytical datasets.
