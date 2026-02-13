@@ -1,3 +1,33 @@
+/*
+Advanced Analytical Queries (Gold Layer)
+
+This section contains advanced business analytics queries built on top of the Gold layer star schema. These queries demonstrate how the warehouse supports real-world reporting, KPI monitoring, and performance analysis using fact and dimension tables.
+
+The analysis includes:
+
+📈 Revenue trends (daily, monthly, city-wise)
+
+> Top-performing products by revenue (overall and month-wise)
+
+> Customer Lifetime Value (CLV) and customer segmentation
+
+> First-order vs repeat-order behavior analysis
+
+> Payment success and failure rate tracking
+
+> Carrier delivery performance evaluation
+
+> Order–shipment mismatch detection
+
+> Revenue contribution percentage by product
+
+> Time-based analysis (day-of-week, month, year breakdown)
+
+The queries leverage advanced SQL techniques such as window functions (DENSE_RANK, SUM() OVER()), CTEs, multi-table joins across fact and dimension tables, and percentage calculations.
+
+This layer demonstrates how the dimensional model enables efficient aggregation, behavioral insights, and business-focused analytics directly from the warehouse.
+*/
+
 select
 *
 from gold.fact_orders
@@ -302,4 +332,5 @@ call gold.load_gold()
 
 select *
 from gold.fact_orders
+
 
