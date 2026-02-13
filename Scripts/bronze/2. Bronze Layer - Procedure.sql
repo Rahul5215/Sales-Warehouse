@@ -1,3 +1,21 @@
+/* ===============================================================
+   PROCEDURE: bronze.load_bronze()
+   LAYER: Bronze (Raw Ingestion Layer)
+
+   DESCRIPTION:
+   This procedure loads raw CSV data into Bronze layer tables.
+   It performs:
+   - Table truncation (Full refresh strategy)
+   - Bulk load using COPY
+   - Execution time tracking
+   - Structured logging
+   - Error diagnostics handling
+
+   LOAD STRATEGY:
+   Full refresh (TRUNCATE + COPY)
+
+   =============================================================== */
+
 CREATE OR REPLACE PROCEDURE bronze.load_bronze()
 LANGUAGE plpgsql
 AS
@@ -135,4 +153,5 @@ END
 $$
 
 CALL bronze.load_bronze()
+
 
