@@ -90,16 +90,16 @@ Enable fast reporting, dashboarding, and executive-level insights.
 
 This warehouse enables analysis such as:
 
-> Revenue trend analysis
+- Revenue trend analysis
 
-> Customer retention tracking
+- Customer retention tracking
 
-> Order frequency analysis
+- Order frequency analysis
 
-> Payment success rate analysis
+- Payment success rate analysis
 
-> Delivery performance insights
+- Delivery performance insights
 
-> City-wise sales distribution
+- City-wise sales distribution
 
-📦 Product category performance
+- Product category performance
