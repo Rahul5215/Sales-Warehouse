@@ -6,13 +6,13 @@ This project implements a modern data warehouse architecture using a Medallion (
 
 The goal of this project is to simulate a real-world data engineering pipeline that:
 
-Ingests raw operational data
+> Ingests raw operational data
 
-Cleans and standardizes it
+> Cleans and standardizes it
 
-Transforms it into structured analytics tables
+> Transforms it into structured analytics tables
 
-Enables KPI reporting and business insights
+> Enables KPI reporting and business insights
 
 This repository demonstrates data modeling, ETL structuring, and warehouse layer separation aligned with industry practices.
 
@@ -22,25 +22,25 @@ The warehouse follows a 3-layer architecture:
 
 🥉 Bronze Layer – Raw Data
 
-Stores data exactly as received from source systems
+> Stores data exactly as received from source systems
 
-No transformations applied
+> No transformations applied
 
-All fields stored as VARCHAR to prevent load failures
+> All fields stored as VARCHAR to prevent load failures
 
-Acts as immutable historical storage
+> Acts as immutable historical storage
 
 Tables:
 
-bronze.orders_raw
+- bronze.orders_raw
 
-bronze.customers_raw
+- bronze.customers_raw
 
-bronze.order_items
+- bronze.order_items
 
-bronze.payments_raw
+- bronze.payments_raw
 
-bronze.shipments_raw
+- bronze.shipments_raw
 
 Purpose:
 
@@ -48,15 +48,15 @@ Ensure reliable ingestion and full traceability of source data.
 
 🥈 Silver Layer – Cleaned & Standardized Data
 
-Data type conversions (VARCHAR → DATE, NUMERIC, etc.)
+> Data type conversions (VARCHAR → DATE, NUMERIC, etc.)
 
-Null handling & data validation
+> Null handling & data validation
 
-Deduplication
+> Deduplication
 
-Business rule standardization
+> Business rule standardization
 
-Relationship alignment
+> Relationship alignment
 
 Purpose:
 
@@ -64,23 +64,23 @@ Create structured, reliable datasets ready for analytics modeling.
 
 🥇 Gold Layer – Business Analytics Layer
 
-Star schema modeling
+> Star schema modeling
 
-Fact & Dimension tables
+> Fact & Dimension tables
 
-KPI-ready datasets
+> KPI-ready datasets
 
-Aggregated business views
+> Aggregated business views
 
 Example Tables:
 
-gold.fact_orders
+- gold.fact_orders
 
-gold.dim_customers
+- gold.dim_customers
 
-gold.dim_products
+- gold.dim_products
 
-gold.fact_payments
+- gold.fact_payments
 
 Purpose:
 
